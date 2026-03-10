@@ -1,0 +1,33 @@
+<div class="column" [style.background-color]="lightColor">
+
+  <div class="column__header" [style.border-bottom-color]="color">
+    <h2 class="column__title" [style.color]="color">{{ title }}</h2>
+    <span class="column__count" [style.background-color]="color">{{ tasks.length }}</span>
+  </div>
+
+  <div
+    class="column__tasks"
+    cdkDropList
+    [id]="status"
+    [cdkDropListData]="tasks"
+    [cdkDropListConnectedTo]="connectedTo"
+    (cdkDropListDropped)="onDrop($event)">
+
+    <div
+      *ngFor="let task of tasks"
+      cdkDrag
+      [cdkDragData]="task">
+      <app-task-card
+        [task]="task"
+        (editTask)="onEditTask($event)"
+        (deleteTask)="onDeleteTask($event)">
+      </app-task-card>
+    </div>
+
+    <p class="column__empty" *ngIf="tasks.length === 0">
+      Aucune tâche
+    </p>
+
+  </div>
+
+</div>

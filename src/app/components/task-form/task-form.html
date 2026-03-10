@@ -1,0 +1,57 @@
+<div class="task-form__overlay">
+  <div class="task-form">
+
+    <h2 class="task-form__title">
+      {{ taskToEdit ? '✏️ Modifier la tâche' : '➕ Nouvelle tâche' }}
+    </h2>
+
+    <div class="task-form__field">
+      <label for="title">Titre *</label>
+      <input
+        id="title"
+        type="text"
+        [(ngModel)]="title"
+        placeholder="Titre de la tâche"
+        autofocus>
+    </div>
+
+    <div class="task-form__field">
+      <label for="description">Description</label>
+      <textarea
+        id="description"
+        [(ngModel)]="description"
+        placeholder="Description (optionnelle)"
+        rows="3">
+      </textarea>
+    </div>
+
+    <div class="task-form__row">
+
+      <div class="task-form__field">
+        <label for="priority">Priorité</label>
+        <select id="priority" [(ngModel)]="priority">
+          <option *ngFor="let p of priorities" [value]="p.value">
+            {{ p.label }}
+          </option>
+        </select>
+      </div>
+
+      <div class="task-form__field">
+        <label for="dueDate">Date d'échéance</label>
+        <input
+          id="dueDate"
+          type="date"
+          [(ngModel)]="dueDate">
+      </div>
+
+    </div>
+
+    <div class="task-form__actions">
+      <button (click)="onCancel()" class="btn btn--cancel">Annuler</button>
+      <button (click)="onSubmit()" class="btn btn--submit" [disabled]="!title.trim()">
+        {{ taskToEdit ? 'Modifier' : 'Créer' }}
+      </button>
+    </div>
+
+  </div>
+</div>

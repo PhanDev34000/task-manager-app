@@ -1,0 +1,82 @@
+.task-card {
+  background-color: white;
+  border-radius: 10px;
+  padding: 14px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  transition: box-shadow 0.2s ease, transform 0.2s ease;
+  cursor: grab;
+  border-left: 4px solid transparent;
+  width: 100%;           // ← prend toute la largeur
+  box-sizing: border-box; // ← padding inclus dans la largeur
+
+  &:hover {
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.12);
+    transform: translateY(-2px);
+  }
+
+  &:active {
+    cursor: grabbing;
+  }
+
+  &--high   { border-left-color: #e74c3c; }
+  &--medium { border-left-color: #f39c12; }
+  &--low    { border-left-color: #27ae60; }
+
+  &__header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 10px;
+    gap: 8px;
+    flex-wrap: wrap;      // ← passe à la ligne si besoin
+  }
+
+  &__title {
+    font-size: 14px;
+    font-weight: 600;
+    color: #2c3e50;
+    line-height: 1.4;
+    flex: 1;
+    min-width: 0;         // ← permet au texte de se couper
+    word-break: break-word; // ← coupe les mots trop longs
+  }
+
+  &__priority {
+    font-size: 11px;
+    font-weight: 600;
+    padding: 3px 8px;
+    border-radius: 12px;
+    white-space: nowrap;
+    flex-shrink: 0;       // ← ne rétrécit pas
+
+    &--high   { background-color: #fde8e8; color: #e74c3c; }
+    &--medium { background-color: #fef3e2; color: #f39c12; }
+    &--low    { background-color: #e8f8f0; color: #27ae60; }
+  }
+
+  &__description {
+    font-size: 13px;
+    color: #7f8c8d;
+    margin-bottom: 12px;
+    line-height: 1.5;
+    word-break: break-word;
+  }
+
+  &__due {
+    font-size: 12px;
+    color: #95a5a6;
+    margin-bottom: 12px;
+    display: flex;
+    align-items: center;
+    gap: 4px;
+  }
+
+  &__actions {
+    display: flex;
+    gap: 8px;
+    justify-content: flex-end;
+    padding-top: 10px;
+    border-top: 1px solid #f0f0f0;
+    flex-wrap: wrap;      // ← boutons passent à la ligne si besoin
+  }
+}

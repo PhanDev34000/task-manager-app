@@ -1,0 +1,23 @@
+<div class="task-card task-card--{{ task.priority }}">
+
+  <div class="task-card__header">
+    <h3 class="task-card__title">{{ task.title }}</h3>
+    <span class="task-card__priority task-card__priority--{{ task.priority }}">
+      {{ task.priority === 'high' ? '🔴 Haute' : task.priority === 'medium' ? '🟡 Moyenne' : '🟢 Basse' }}
+    </span>
+  </div>
+
+  <p class="task-card__description" *ngIf="task.description">
+    {{ task.description }}
+  </p>
+
+  <div class="task-card__due" *ngIf="task.dueDate">
+    📅 À faire avant le : {{ task.dueDate | date:'dd/MM/yyyy' }}
+  </div>
+
+  <div class="task-card__actions">
+    <button (click)="onEdit()" class="btn btn--edit">✏️ Éditer</button>
+    <button (click)="onDelete()" class="btn btn--delete">🗑️ Supprimer</button>
+  </div>
+
+</div>

@@ -1,0 +1,63 @@
+<div class="auth">
+  <div class="auth__card">
+
+    <div class="auth__header">
+      <h1 class="auth__title">📋 Task Manager</h1>
+      <p class="auth__subtitle">Créer votre compte</p>
+    </div>
+
+    <div class="auth__field">
+      <label for="username">Nom d'utilisateur</label>
+      <input
+        id="username"
+        type="text"
+        [(ngModel)]="username"
+        placeholder="John Doe"
+        autofocus>
+    </div>
+
+    <div class="auth__field">
+      <label for="email">Email</label>
+      <input
+        id="email"
+        type="email"
+        [(ngModel)]="email"
+        placeholder="votre@email.com">
+    </div>
+
+    <div class="auth__field">
+      <label for="password">Mot de passe</label>
+      <input
+        id="password"
+        type="password"
+        [(ngModel)]="password"
+        placeholder="••••••••">
+    </div>
+
+    <div class="auth__field">
+      <label for="confirm">Confirmer le mot de passe</label>
+      <input
+        id="confirm"
+        type="password"
+        [(ngModel)]="confirm"
+        placeholder="••••••••">
+    </div>
+
+    <div class="auth__error" *ngIf="error">
+      ⚠️ {{ error }}
+    </div>
+
+    <button
+      (click)="onSubmit()"
+      class="btn btn--primary btn--full"
+      [disabled]="loading">
+      {{ loading ? 'Inscription...' : 'S\'inscrire' }}
+    </button>
+
+    <p class="auth__link">
+      Déjà un compte ?
+      <a routerLink="/login">Se connecter</a>
+    </p>
+
+  </div>
+</div>

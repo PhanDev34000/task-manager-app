@@ -1,0 +1,38 @@
+<div class="board">
+
+  <div class="board__header">
+    <h1 class="board__title">📋 Mon Gestionnaire de tâches</h1>
+    <div class="board__actions">
+      <span class="board__user">👤 {{ username }}</span>
+      <button (click)="openForm()" class="btn btn--primary">
+        ➕ Nouvelle tâche
+      </button>
+      <button (click)="onLogout()" class="btn btn--logout">
+        🚪 Déconnexion
+      </button>
+    </div>
+  </div>
+
+  <div class="board__columns">
+    <app-column
+      *ngFor="let col of columns"
+      [title]="col.label"
+      [status]="col.value"
+      [color]="col.color"
+      [lightColor]="col.light"
+      [tasks]="getTasksByStatus(col.value)"
+      [connectedTo]="getConnectedColumns(col.value)"
+      (editTask)="onEditTask($event)"
+      (deleteTask)="onDeleteTask($event)"
+      (taskDropped)="onTaskDropped($event, col.value)">
+    </app-column>
+  </div>
+
+  <app-task-form
+    *ngIf="showForm"
+    [taskToEdit]="taskToEdit"
+    (formSubmit)="onFormSubmit($event)"
+    (formCancel)="onFormCancel()">
+  </app-task-form>
+
+</div>
