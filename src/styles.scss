@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+
 * {
   margin: 0;
   padding: 0;
@@ -5,25 +7,38 @@
 }
 
 body {
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  background-color: #f0f2f5;
-  color: #333;
+  font-family: 'Inter', sans-serif;
+  background-color: #0f0f1a;
+  color: #e2e8f0;
   min-height: 100vh;
+}
+
+html, body {
+  height: 100%;
+}
+
+app-root {
+  display: block;
+  height: 100%;
 }
 
 // Boutons globaux
 .btn {
   padding: 8px 16px;
   border: none;
-  border-radius: 6px;
+  border-radius: 8px;
   cursor: pointer;
   font-size: 14px;
   font-weight: 500;
+  font-family: 'Inter', sans-serif;
   transition: all 0.2s ease;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
 
   &:hover {
-    opacity: 0.85;
     transform: translateY(-1px);
+    filter: brightness(1.1);
   }
 
   &:disabled {
@@ -33,55 +48,77 @@ body {
   }
 
   &--primary {
-    background-color: #4a90e2;
+    background: linear-gradient(135deg, #6366f1, #8b5cf6);
     color: white;
+    box-shadow: 0 4px 15px rgba(99, 102, 241, 0.3);
   }
 
   &--edit {
-    background-color: #f5a623;
+    background: linear-gradient(135deg, #f59e0b, #f97316);
     color: white;
-    padding: 4px 10px;
+    padding: 6px 12px;
     font-size: 12px;
   }
 
   &--delete {
-    background-color: #e74c3c;
+    background: linear-gradient(135deg, #ef4444, #dc2626);
     color: white;
-    padding: 4px 10px;
+    padding: 6px 12px;
     font-size: 12px;
   }
 
   &--cancel {
-    background-color: #95a5a6;
-    color: white;
+    background: rgba(255, 255, 255, 0.1);
+    color: #e2e8f0;
+    border: 1px solid rgba(255, 255, 255, 0.15);
   }
 
   &--submit {
-    background-color: #27ae60;
+    background: linear-gradient(135deg, #10b981, #059669);
     color: white;
+    box-shadow: 0 4px 15px rgba(16, 185, 129, 0.3);
   }
 
-  .cdk-drag-preview {
+  &--logout {
+    background: rgba(239, 68, 68, 0.15);
+    color: #fca5a5;
+    border: 1px solid rgba(239, 68, 68, 0.3);
+    padding: 8px 16px;
+    border-radius: 8px;
+
+    &:hover {
+      background: rgba(239, 68, 68, 0.25);
+    }
+  }
+
+  &--full {
+    width: 100%;
+    padding: 12px;
+    font-size: 16px;
+    justify-content: center;
+  }
+}
+
+// Drag & Drop
+.cdk-drag-preview {
   box-sizing: border-box;
-  border-radius: 8px;
-  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
-  background: white;
-  opacity: 0.9;
+  border-radius: 12px;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
+  opacity: 0.95;
 }
 
 .cdk-drag-placeholder {
-  opacity: 0;
+  opacity: 0.2;
+  border: 2px dashed #6366f1;
+  border-radius: 12px;
+  background: rgba(99, 102, 241, 0.05);
 }
 
 .cdk-drag-animating {
-  transition: transform 150ms ease;
+  transition: transform 200ms ease;
 }
 
-.cdk-drop-list-dragging {
-  transition: transform 150ms ease;
-}
-
-// Animations globales
+// Animations
 @keyframes fadeIn {
   from { opacity: 0; transform: translateY(10px); }
   to   { opacity: 1; transform: translateY(0); }
@@ -101,25 +138,9 @@ app-column {
   animation: slideIn 0.3s ease;
 }
 
-// Drag & Drop
-.cdk-drag-preview {
-  box-sizing: border-box;
-  border-radius: 10px;
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
-  background: white;
-  opacity: 0.95;
-}
-
-.cdk-drag-placeholder {
-  opacity: 0.3;
-  border: 2px dashed #4a90e2;
-  border-radius: 10px;
-  background: #eef4fd;
-}
-
-.cdk-drag-animating {
-  transition: transform 200ms ease;
-}
-
-
+// Responsive
+@media (max-width: 480px) {
+  .board__columns {
+    flex-direction: column !important;
+  }
 }

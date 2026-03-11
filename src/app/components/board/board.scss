@@ -1,92 +1,76 @@
 .board {
   padding: 24px;
   min-height: 100vh;
-  background-color: #f0f2f5;
+  background: linear-gradient(135deg, #0f0f1a 0%, #1a1a2e 50%, #16213e 100%);
 
   &__header {
     display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
+    justify-content: space-between;
     align-items: center;
     margin-bottom: 32px;
-    background: white;
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(10px);
     padding: 16px 24px;
-    border-radius: 12px;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+    border-radius: 16px;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+    flex-wrap: wrap;
     gap: 12px;
-    position: relative;
   }
 
   &__title {
-    font-size: 24px;
+    font-size: 22px;
     font-weight: 700;
-    color: #2c3e50;
-    min-width: 200px;   // ← largeur minimale avant de wrapper
+    color: #f1f5f9;
     flex: 1;
-    text-align: center;
+    background: linear-gradient(135deg, #e2e8f0, #a78bfa);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
   }
 
   &__actions {
     display: flex;
     align-items: center;
-    gap: 8px;
+    gap: 10px;
     flex-wrap: wrap;
     justify-content: flex-end;
-    flex-shrink: 0;     // ← ne rétrécit pas
+    flex-shrink: 0;
   }
 
   &__user {
     font-size: 13px;
-    color: #7f8c8d;
+    color: #94a3b8;
     font-weight: 500;
-    background: #f0f2f5;
-    padding: 6px 12px;
+    background: rgba(255, 255, 255, 0.08);
+    padding: 6px 14px;
     border-radius: 20px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
     white-space: nowrap;
   }
 
   &__columns {
     display: flex;
     flex-direction: row;
-    gap: 24px;
+    gap: 20px;
     align-items: flex-start;
-  }
-}
-
-.btn--logout {
-  background-color: #e74c3c;
-  color: white;
-  padding: 8px 16px;
-  border-radius: 6px;
-
-  &:hover {
-    background-color: #c0392b;
   }
 }
 
 app-column {
   flex: 1;
   min-width: 0;
+  display: block;
 }
 
-@media (max-width: 480px) {
+@media (max-width: 768px) {
   .board__header {
-    flex-direction: column !important;
-    align-items: center !important;
-    justify-content: center !important;
-    text-align: center;
-  }
-
-  .board__title {
+    flex-direction: column;
+    align-items: stretch;
     text-align: center;
   }
 
   .board__actions {
-    justify-content: center !important;
-    width: 100%;
-  }
-
-  .board__columns {
-    flex-direction: column !important;
+    justify-content: center;
   }
 }

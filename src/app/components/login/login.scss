@@ -3,15 +3,18 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: #f0f2f5;
+  background: linear-gradient(135deg, #0f0f1a 0%, #1a1a2e 50%, #16213e 100%);
+  padding: 24px;
 
   &__card {
-    background: white;
-    border-radius: 12px;
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(20px);
+    border-radius: 20px;
     padding: 40px;
     width: 100%;
     max-width: 420px;
-    box-shadow: 0 4px 24px rgba(0, 0, 0, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
   }
 
   &__header {
@@ -22,13 +25,16 @@
   &__title {
     font-size: 28px;
     font-weight: 700;
-    color: #2c3e50;
     margin-bottom: 8px;
+    background: linear-gradient(135deg, #e2e8f0, #a78bfa);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
   }
 
   &__subtitle {
-    color: #7f8c8d;
-    font-size: 15px;
+    color: #64748b;
+    font-size: 14px;
   }
 
   &__field {
@@ -38,54 +44,54 @@
     margin-bottom: 20px;
 
     label {
-      font-size: 14px;
-      font-weight: 600;
-      color: #555;
+      font-size: 13px;
+      font-weight: 500;
+      color: #94a3b8;
     }
 
     input {
-      padding: 10px 14px;
-      border: 2px solid #e0e0e0;
-      border-radius: 8px;
+      padding: 12px 16px;
+      background: rgba(255, 255, 255, 0.06);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 10px;
       font-size: 14px;
-      transition: border-color 0.2s;
+      font-family: 'Inter', sans-serif;
+      color: #e2e8f0;
+      transition: all 0.2s;
+
+      &::placeholder { color: #475569; }
 
       &:focus {
         outline: none;
-        border-color: #4a90e2;
+        border-color: #6366f1;
+        background: rgba(99, 102, 241, 0.08);
+        box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.15);
       }
     }
   }
 
   &__error {
-    background-color: #fde8e8;
-    color: #e74c3c;
+    background: rgba(239, 68, 68, 0.1);
+    border: 1px solid rgba(239, 68, 68, 0.3);
+    color: #fca5a5;
     padding: 10px 14px;
     border-radius: 8px;
-    font-size: 14px;
+    font-size: 13px;
     margin-bottom: 16px;
   }
 
   &__link {
     text-align: center;
-    margin-top: 20px;
+    margin-top: 24px;
     font-size: 14px;
-    color: #7f8c8d;
+    color: #64748b;
 
     a {
-      color: #4a90e2;
-      font-weight: 600;
+      color: #a78bfa;
+      font-weight: 500;
       text-decoration: none;
 
-      &:hover {
-        text-decoration: underline;
-      }
+      &:hover { color: #c4b5fd; }
     }
   }
-}
-
-.btn--full {
-  width: 100%;
-  padding: 12px;
-  font-size: 16px;
 }

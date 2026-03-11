@@ -1,26 +1,28 @@
 .task-card {
-  background-color: white;
-  border-radius: 10px;
-  padding: 14px;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
-  transition: box-shadow 0.2s ease, transform 0.2s ease;
+  background: rgba(255, 255, 255, 0.06);
+  backdrop-filter: blur(10px);
+  border-radius: 12px;
+  padding: 16px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
+  transition: all 0.2s ease;
   cursor: grab;
-  border-left: 4px solid transparent;
-  width: 100%;           // ← prend toute la largeur
-  box-sizing: border-box; // ← padding inclus dans la largeur
+  border-left: 3px solid transparent;
+  width: 100%;
+  box-sizing: border-box;
 
   &:hover {
-    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.12);
+    background: rgba(255, 255, 255, 0.09);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
     transform: translateY(-2px);
+    border-color: rgba(255, 255, 255, 0.12);
   }
 
-  &:active {
-    cursor: grabbing;
-  }
+  &:active { cursor: grabbing; }
 
-  &--high   { border-left-color: #e74c3c; }
-  &--medium { border-left-color: #f39c12; }
-  &--low    { border-left-color: #27ae60; }
+  &--high   { border-left-color: #ef4444; }
+  &--medium { border-left-color: #f59e0b; }
+  &--low    { border-left-color: #10b981; }
 
   &__header {
     display: flex;
@@ -28,43 +30,43 @@
     align-items: flex-start;
     margin-bottom: 10px;
     gap: 8px;
-    flex-wrap: wrap;      // ← passe à la ligne si besoin
+    flex-wrap: wrap;
   }
 
   &__title {
     font-size: 14px;
     font-weight: 600;
-    color: #2c3e50;
+    color: #f1f5f9;
     line-height: 1.4;
     flex: 1;
-    min-width: 0;         // ← permet au texte de se couper
-    word-break: break-word; // ← coupe les mots trop longs
+    min-width: 0;
+    word-break: break-word;
   }
 
   &__priority {
     font-size: 11px;
     font-weight: 600;
-    padding: 3px 8px;
-    border-radius: 12px;
+    padding: 3px 10px;
+    border-radius: 20px;
     white-space: nowrap;
-    flex-shrink: 0;       // ← ne rétrécit pas
+    flex-shrink: 0;
 
-    &--high   { background-color: #fde8e8; color: #e74c3c; }
-    &--medium { background-color: #fef3e2; color: #f39c12; }
-    &--low    { background-color: #e8f8f0; color: #27ae60; }
+    &--high   { background: rgba(239, 68, 68, 0.15);   color: #fca5a5; border: 1px solid rgba(239, 68, 68, 0.3); }
+    &--medium { background: rgba(245, 158, 11, 0.15);  color: #fcd34d; border: 1px solid rgba(245, 158, 11, 0.3); }
+    &--low    { background: rgba(16, 185, 129, 0.15);  color: #6ee7b7; border: 1px solid rgba(16, 185, 129, 0.3); }
   }
 
   &__description {
     font-size: 13px;
-    color: #7f8c8d;
-    margin-bottom: 12px;
+    color: #94a3b8;
+    margin-bottom: 10px;
     line-height: 1.5;
     word-break: break-word;
   }
 
   &__due {
     font-size: 12px;
-    color: #95a5a6;
+    color: #64748b;
     margin-bottom: 12px;
     display: flex;
     align-items: center;
@@ -74,9 +76,9 @@
   &__actions {
     display: flex;
     gap: 8px;
-    justify-content: flex-end;
-    padding-top: 10px;
-    border-top: 1px solid #f0f0f0;
-    flex-wrap: wrap;      // ← boutons passent à la ligne si besoin
+    justify-content: center;   // ← centré sur mobile aussi
+    padding-top: 12px;
+    border-top: 1px solid rgba(255, 255, 255, 0.06);
+    flex-wrap: wrap;
   }
 }
